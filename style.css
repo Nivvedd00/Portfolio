@@ -443,8 +443,10 @@ button, input, textarea {
 
 .hero-image-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.25rem;
   position: relative;
 }
 
@@ -496,34 +498,40 @@ button, input, textarea {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hero-badge {
-  margin-top: 12px;
+.hero-resume-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(11, 15, 25, 0.8);
-  border: 1px solid rgba(var(--accent-rgb), 0.3);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  gap: 0.6rem;
+  padding: 0.65rem 1.6rem;
+  background: var(--bg-dark-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 50px;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
-.hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent);
-  animation: badge-pulse 1.8s infinite;
+.hero-resume-btn i {
+  color: var(--accent);
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
 }
 
-@keyframes badge-pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+.hero-resume-btn:hover {
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--neon-shadow-primary);
+}
+
+.hero-resume-btn:hover i {
+  transform: scale(1.15);
 }
 
 .hero-greeting {
@@ -659,47 +667,6 @@ button, input, textarea {
   text-align: center;
 }
 
-.fact-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.fact-card {
-  background: var(--bg-dark-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  padding: 1.8rem;
-  text-align: center;
-  transition: var(--transition-normal);
-}
-
-.fact-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-hover);
-  box-shadow: var(--neon-shadow-primary);
-}
-
-.fact-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  display: block;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.25rem;
-}
-
-.fact-label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 500;
 }
 
 /* Timeline */

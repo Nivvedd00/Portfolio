@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
      1. HERO TYPING EFFECT
      ========================================================================== */
   const typingElement = document.getElementById('typing-text');
-  const words = ["B.Tech IT Student.", "Cloud Enthusiast.", "AI Developer."];
+  const words = ["B.Tech IT Graduate.", "Cloud Enthusiast.", "AI Developer."];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      6. INTERACTIVE 3D TILT EFFECT
      ========================================================================== */
-  const tiltCards = document.querySelectorAll('.skills-card, .project-card, .fact-card, .cert-card, .hero-image-card, .contact-card');
+  const tiltCards = document.querySelectorAll('.skills-card, .project-card, .cert-card, .hero-image-card, .contact-card');
 
   tiltCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Target elements to animate on scroll
   const animTargets = document.querySelectorAll(
-    '.skills-card, .project-card, .section-header, .about-text-col, .contact-card, .cert-card, .hero-image-card, .fact-card'
+    '.skills-card, .project-card, .section-header, .about-text-col, .contact-card, .cert-card, .hero-image-card'
   );
 
   animTargets.forEach(target => {
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      8. SPOTLIGHT MOUSE-GLOW TRACKING
      ========================================================================== */
-  const spotlightCards = document.querySelectorAll('.skills-card, .project-card, .cert-card, .fact-card, .hero-image-card, .contact-card');
+  const spotlightCards = document.querySelectorAll('.skills-card, .project-card, .cert-card, .hero-image-card, .contact-card');
   spotlightCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
