@@ -219,65 +219,44 @@
         <!-- Filter Controls -->
         <div class="project-filters" id="project-filters">
           <button class="filter-btn active" data-filter="all" id="filter-all">All Projects</button>
-          <button class="filter-btn" data-filter="web-cloud" id="filter-web-cloud">Web & Cloud</button>
-          <button class="filter-btn" data-filter="ai-dl" id="filter-ai-dl">AI & Deep Learning</button>
+          <button class="filter-btn" data-filter="cv" id="filter-cv">Computer Vision</button>
+          <button class="filter-btn" data-filter="ai-nlp" id="filter-ai-nlp">AI & NLP</button>
         </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid" id="projects-grid">
           
-          <!-- Project 1: Medical Chatbot -->
-          <div class="project-card" data-category="ai-dl" id="project-1">
+          <!-- Project 1: Vision-Based Mobility Assistance System for VIPs -->
+          <div class="project-card" data-category="cv" id="project-1">
             <div class="project-img-wrapper">
-              <img src="projects/medical_chatbot.png" alt="Medical Chatbot Screen Preview" loading="lazy">
+              <img src="projects/spatial_awareness.png" alt="Vision-Based Mobility Assistance System" loading="lazy">
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" class="project-link-icon" aria-label="View Source Code"><i class="fa-brands fa-github"></i></a>
-                  <a href="#" class="project-link-icon" aria-label="View Details"><i class="fa-solid fa-circle-info"></i></a>
+                  <a href="https://github.com/Nivvedd00/GPU-Accelerated-Spatial-Awareness-Model" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://github.com/Nivvedd00/GPU-Accelerated-Spatial-Awareness-Model" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View Project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
               </div>
             </div>
             <div class="project-info">
               <div class="project-tags">
-                <span class="project-tag">AI Chatbot</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">NLP</span>
+                <span class="project-tag">YOLOv8</span>
+                <span class="project-tag">Intel MiDaS</span>
+                <span class="project-tag">Computer Vision</span>
+                <span class="project-tag">PyTorch</span>
               </div>
-              <h3 class="project-title">AI Chatbot for Medical Purposes</h3>
-              <p class="project-description">Developed a symptoms checking and disease detection interactive chat system, optimizing messaging responses for automated health triage queries.</p>
+              <h3 class="project-title">Vision-Based Mobility Assistance System using Real-Time Object Detection for VIPs</h3>
+              <p class="project-description">Fused YOLOv8 object detection with Intel MiDaS depth estimation to deliver vocal distance alerts and navigation assistance to visually impaired persons (VIPs) on low-latency GPU pipelines.</p>
             </div>
           </div>
 
-          <!-- Project 2: AWS Deployment -->
-          <div class="project-card" data-category="web-cloud" id="project-2">
-            <div class="project-img-wrapper">
-              <img src="projects/aws_cloud.png" alt="AWS Cloud Architecture Diagram" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a href="#" class="project-link-icon" aria-label="View GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                  <a href="#" class="project-link-icon" aria-label="View Live Deployment"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="project-tag">AWS Cloud</span>
-                <span class="project-tag">Ubuntu Server</span>
-                <span class="project-tag">Networking</span>
-              </div>
-              <h3 class="project-title">Cloud-Hosted Web Application</h3>
-              <p class="project-description">Configured and deployed an end-to-end cloud-hosted web application on AWS leveraging EC2 clusters, RDS databases, S3 buckets, Route53, and Ubuntu nodes.</p>
-            </div>
-          </div>
-
-          <!-- Project 3: Produce Freshness -->
-          <div class="project-card" data-category="ai-dl" id="project-3">
+          <!-- Project 2: Produce Freshness Detector -->
+          <div class="project-card" data-category="cv" id="project-2">
             <div class="project-img-wrapper">
               <img src="projects/produce_freshness.png" alt="Produce Freshness Vision Output" loading="lazy">
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" class="project-link-icon" aria-label="View Django Source"><i class="fa-brands fa-github"></i></a>
-                  <a href="#" class="project-link-icon" aria-label="View Details"><i class="fa-solid fa-circle-info"></i></a>
+                  <a href="https://github.com/nivvedd00/Produce-Freshness-Detector" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://github.com/nivvedd00/Produce-Freshness-Detector" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View Project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
               </div>
             </div>
@@ -286,31 +265,33 @@
                 <span class="project-tag">Django</span>
                 <span class="project-tag">VGG16 Model</span>
                 <span class="project-tag">Computer Vision</span>
+                <span class="project-tag">Transfer Learning</span>
               </div>
               <h3 class="project-title">Produce Freshness Detector</h3>
-              <p class="project-description">Developed a Django web application for real-time freshness detection using a fine-tuned VGG16 model, yielding 94.62% classification accuracy across fruit/vegetable groups.</p>
+              <p class="project-description">Developed a full-stack Django web application for real-time freshness classification using a fine-tuned VGG16 CNN model, achieving 94.62% accuracy across fruit and vegetable categories.</p>
             </div>
           </div>
 
-          <!-- Project 4: Spatial Awareness -->
-          <div class="project-card" data-category="ai-dl" id="project-4">
+          <!-- Project 3: AI Medical Diagnostic Chatbot -->
+          <div class="project-card" data-category="ai-nlp" id="project-3">
             <div class="project-img-wrapper">
-              <img src="projects/spatial_awareness.png" alt="Spatial Awareness Video Mapping" loading="lazy">
+              <img src="projects/medical_chatbot.png" alt="Medical Chatbot Screen Preview" loading="lazy">
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" class="project-link-icon" aria-label="View GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                  <a href="#" class="project-link-icon" aria-label="View Demo video"><i class="fa-solid fa-circle-play"></i></a>
+                  <a href="https://github.com/nivvedd00/AI-Medical-Chatbot" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://github.com/nivvedd00/AI-Medical-Chatbot" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="View Project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
               </div>
             </div>
             <div class="project-info">
               <div class="project-tags">
-                <span class="project-tag">YOLOv8</span>
-                <span class="project-tag">Intel MiDaS</span>
-                <span class="project-tag">GPU Compute</span>
+                <span class="project-tag">AI Chatbot</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Flask</span>
+                <span class="project-tag">NLP</span>
               </div>
-              <h3 class="project-title">GPU Spatial Awareness Assistant</h3>
-              <p class="project-description">Fused YOLOv8 object detection with Intel MiDaS depth estimation to deliver vocal distance alerts and assistance to visually impaired users on low-latency pipelines.</p>
+              <h3 class="project-title">AI Medical Diagnostic Chatbot</h3>
+              <p class="project-description">Trained a Multinomial Naive Bayes model on 4,900+ clinical records across 800+ diseases, integrating a RESTful Flask API with PyTest unit testing for automated health triage.</p>
             </div>
           </div>
 
