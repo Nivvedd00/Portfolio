@@ -1,71 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. CUSTOM CURSOR TRACKING
-     ========================================================================== */
-  const cursorDot = document.getElementById('cursor-dot');
-  const cursorOutline = document.getElementById('cursor-outline');
-
-  if (cursorDot && cursorOutline) {
-    // Only enable custom cursor if pointing device is fine (desktop)
-    const isDesktop = window.matchMedia('(pointer: fine)').matches;
-
-    if (isDesktop) {
-      cursorDot.style.opacity = '1';
-      cursorOutline.style.opacity = '1';
-
-      let mouseX = 0, mouseY = 0; // Mouse positions
-      let dotX = 0, dotY = 0;     // Dot positions
-      let outlineX = 0, outlineY = 0; // Outline positions
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Instant position for the dot
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
-      });
-
-      // Smooth animation loop for the outline trailing effect
-      const animateCursor = () => {
-        // Linear interpolation (lerp) for smooth lag
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
-
-        cursorOutline.style.left = `${outlineX}px`;
-        cursorOutline.style.top = `${outlineY}px`;
-
-        requestAnimationFrame(animateCursor);
-      };
-      requestAnimationFrame(animateCursor);
-
-      // Mouse leaves/enters window
-      document.addEventListener('mouseleave', () => {
-        cursorDot.style.opacity = '0';
-        cursorOutline.style.opacity = '0';
-      });
-
-      document.addEventListener('mouseenter', () => {
-        cursorDot.style.opacity = '1';
-        cursorOutline.style.opacity = '1';
-      });
-
-      // Add hover class on interactive elements
-      const interactiveSelector = 'a, button, input, textarea, .filter-btn, .project-card, .social-icon';
-      document.querySelectorAll(interactiveSelector).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          document.body.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
-          document.body.classList.remove('cursor-hover');
-        });
-      });
-    }
-  }
-
-  /* ==========================================================================
-     2. HERO TYPING EFFECT
+     1. HERO TYPING EFFECT
      ========================================================================== */
   const typingElement = document.getElementById('typing-text');
   const words = ["B.Tech IT Student.", "Cloud Enthusiast.", "AI Developer."];
@@ -196,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      6. INTERACTIVE 3D TILT EFFECT
      ========================================================================== */
-  const tiltCards = document.querySelectorAll('.skills-card, .project-card, .fact-card, .cert-card');
+  const tiltCards = document.querySelectorAll('.skills-card, .project-card, .fact-card, .cert-card, .hero-image-card, .contact-card');
 
   tiltCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -221,41 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     7. CONTACT FORM VALIDATION & SUCCESS HANDLER
-     ========================================================================== */
-  const contactForm = document.getElementById('contact-form');
-  const contactSuccess = document.getElementById('contact-success');
-  const successResetBtn = document.getElementById('btn-success-reset');
-
-  if (contactForm && contactSuccess) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Form validation (built-in HTML5 takes care of basic validity, but we can double check)
-      const name = document.getElementById('form-name').value.trim();
-      const email = document.getElementById('form-email').value.trim();
-      const subject = document.getElementById('form-subject').value.trim();
-      const message = document.getElementById('form-message').value.trim();
-
-      if (name && email && subject && message) {
-        // Fake success trigger - hide form, show success state
-        contactForm.style.display = 'none';
-        contactSuccess.style.display = 'flex';
-      }
-    });
-
-    if (successResetBtn) {
-      successResetBtn.addEventListener('click', () => {
-        // Reset form and return to input view
-        contactForm.reset();
-        contactSuccess.style.display = 'none';
-        contactForm.style.display = 'flex';
-      });
-    }
-  }
-
-  /* ==========================================================================
-     8. SCROLL REVEAL (INTERSECTION OBSERVER)
+     7. SCROLL REVEAL (INTERSECTION OBSERVER)
      ========================================================================== */
   // Create intersection observer for fade-in scroll effects
   const observerOptions = {
@@ -275,11 +177,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Target elements to animate on scroll
   const animTargets = document.querySelectorAll(
-    '.skills-card, .project-card, .timeline-item, .section-header, .about-text-col, .about-timeline-col, .contact-info-col, .contact-form-col, .cert-card'
+    '.skills-card, .project-card, .section-header, .about-text-col, .contact-card, .cert-card, .hero-image-card, .fact-card'
   );
 
   animTargets.forEach(target => {
     target.classList.add('reveal-ready');
     revealObserver.observe(target);
   });
+
+  /* ==========================================================================
+     8. SPOTLIGHT MOUSE-GLOW TRACKING
+     ========================================================================== */
+  const spotlightCards = document.querySelectorAll('.skills-card, .project-card, .cert-card, .fact-card, .hero-image-card, .contact-card');
+  spotlightCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  /* ==========================================================================
+     10. FLOATING ACCENT COLOR SWITCHER
+     ========================================================================== */
+  const themeSwitcher = document.getElementById('theme-switcher');
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeMenu = document.getElementById('theme-menu');
+  const themeOpts = document.querySelectorAll('.theme-opt');
+
+  if (themeToggleBtn && themeMenu) {
+    // Toggle Menu
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (themeSwitcher && !themeSwitcher.contains(e.target)) {
+        themeMenu.classList.remove('open');
+      }
+    });
+  }
+
+  const switchTheme = (themeName) => {
+    // Remove previous themes
+    document.body.classList.remove('theme-indigo', 'theme-emerald', 'theme-amber');
+    
+    // Add current theme
+    document.body.classList.add(`theme-${themeName}`);
+
+    // Set active option state
+    themeOpts.forEach(opt => {
+      opt.classList.remove('active');
+      if (opt.getAttribute('data-theme') === themeName) {
+        opt.classList.add('active');
+      }
+    });
+
+    // Store in localStorage
+    localStorage.setItem('portfolio-theme', themeName);
+  };
+
+  themeOpts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      const selectedTheme = opt.getAttribute('data-theme');
+      switchTheme(selectedTheme);
+    });
+  });
+
+  // Load Saved Theme
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'indigo';
+  switchTheme(savedTheme);
 });
